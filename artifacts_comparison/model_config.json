@@ -1,0 +1,58 @@
+{
+  "labels": [
+    "toxic",
+    "severe_toxic",
+    "obscene",
+    "threat",
+    "insult",
+    "identity_hate"
+  ],
+  "max_len": 192,
+  "vocab_size": 35000,
+  "seed": 42,
+  "positive_weight_mode": "sqrt",
+  "architecture": {
+    "BiLSTM": {
+      "embed_dim": 128,
+      "hidden_dim": 96,
+      "dropout": 0.3
+    },
+    "TextCNN": {
+      "embed_dim": 128,
+      "channels": 96,
+      "kernels": [
+        3,
+        4,
+        5
+      ],
+      "dropout": 0.3
+    }
+  },
+  "thresholds": {
+    "logreg": {
+      "toxic": 0.25,
+      "severe_toxic": 0.1,
+      "obscene": 0.19,
+      "threat": 0.08,
+      "insult": 0.16,
+      "identity_hate": 0.11
+    },
+    "bilstm": {
+      "toxic": 0.74,
+      "severe_toxic": 0.61,
+      "obscene": 0.69,
+      "threat": 0.88,
+      "insult": 0.67,
+      "identity_hate": 0.75
+    },
+    "textcnn": {
+      "toxic": 0.74,
+      "severe_toxic": 0.8,
+      "obscene": 0.56,
+      "threat": 0.92,
+      "insult": 0.68,
+      "identity_hate": 0.87
+    }
+  },
+  "purpose": "Six-label comment-content moderation; not author criminality prediction"
+}
